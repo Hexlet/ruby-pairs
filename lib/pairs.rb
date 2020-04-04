@@ -12,8 +12,16 @@ module Pairs
     }
   end
 
+  def self.check_pair(pair)
+    return if pair?(pair)
+
+    # value = typeof pair === 'object' ? JSON.stringify(pair, null, 2) : String(pair);
+    value = "#{pair}"
+    raise NoMethodError, value
+  end
+
   def self.car(pair)
-    checkPair(pair)
+    check_pair(pair)
     pair.call('car')
   end
 
@@ -21,29 +29,19 @@ module Pairs
     pair.call('cdr')
   end
 
-  def self.isPair(pair)
+  def self.pair?(pair)
     pair.instance_of? Proc
   end
 
-  def self.checkPair(pair)
-    if !isPair(pair)
-      # value = typeof pair === 'object' ? JSON.stringify(pair, null, 2) : String(pair);
-      value = "#{pair}"
-      raise NoMethodError, value
-    end
-  end
-
-  def self.toString(pair)
-
+  def self.to_string(pair)
     def self.rec(p)
-      if !isPair(p)
+      unless pair?(p)
         return "#{p}"
       end
       left = car(p)
       right = cdr(p)
       "(#{rec(left)}, #{rec(right)})"
     end
-
     rec(pair)
   end
 end

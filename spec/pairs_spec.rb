@@ -12,27 +12,29 @@ RSpec.describe Pairs do
 
   it '#tostring' do
     pair = Pairs.cons(10, -10)
-    expect(Pairs.toString(pair)).to eq('(10, -10)')
+    expect(Pairs.to_string(pair)).to eq('(10, -10)')
   end
 
   it '#toString2' do
-    pair = Pairs.cons(Pairs.cons(3, 5), Pairs.cons(1, true));
-    expect(Pairs.toString(pair)).to eq('((3, 5), (1, true))')
+    pair = Pairs.cons(Pairs.cons(3, 5), Pairs.cons(1, true))
+    expect(Pairs.to_string(pair)).to eq('((3, 5), (1, true))')
   end
 
   it '#toString3' do
     pair = Pairs.cons(10, Pairs.cons(0, 1))
-    expect(Pairs.toString(pair)).to eq('(10, (0, 1))')
+    expect(Pairs.to_string(pair)).to eq('(10, (0, 1))')
   end
 
-  it '#isPair' do
+  it '#is Pair' do
     pair = Pairs.cons(10, 10)
-    expect(Pairs.isPair(pair)).to eq true
+    expect(Pairs.pair?(pair)).to eq true
+    expect(Pairs.pair?('asdf')).to eq false
+    expect(Pairs.pair?({ key: "value" })).to eq false
   end
 
   it '#checkPair' do
-    expect(lambda {car(345)}).to raise_error(NoMethodError)
-    expect(lambda {cdr('asdf')}).to raise_error(NoMethodError)
-    expect(lambda {car({ key: "value" })}).to raise_error(NoMethodError)
+    expect(lambda { car(345) }).to raise_error(NoMethodError)
+    expect(lambda { cdr('asdf') }).to raise_error(NoMethodError)
+    expect(lambda { car({ key: "value" }) }).to raise_error(NoMethodError)
   end
 end
