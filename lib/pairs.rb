@@ -1,13 +1,13 @@
-# frozen_string_literal: true
-
 module Pairs
-  def self.cons(value1, value2)
+  def self.cons(left, right)
     lambda { |message|
       case message
       when 'car'
-        value1
+        left
       when 'cdr'
-        value2
+        right
+      else
+        raise "Unknown message #{message}"
       end
     }
   end
@@ -15,9 +15,7 @@ module Pairs
   def self.check_pair(pair)
     return if pair?(pair)
 
-    # value = typeof pair === 'object' ? JSON.stringify(pair, null, 2) : String(pair);
-    value = "#{pair}"
-    raise NoMethodError, value
+    raise NoMethodError, pair.to_s
   end
 
   def self.car(pair)
@@ -34,15 +32,14 @@ module Pairs
   end
 
   def self.to_string(pair)
-    def self.rec(p)
-      unless pair?(p)
-        return "#{p}"
-      end
-      left = car(p)
-      right = cdr(p)
-      "(#{rec(left)}, #{rec(right)})"
-    end
-    rec(pair)
+    rec = lambda { |pair_inner|
+      return pair_inner.to_s unless pair?(pair_inner)
+
+      left = car(pair_inner)
+      right = cdr(pair_inner)
+      "(#{rec.call(left)}, #{rec.call(right)})"
+    }
+
+    rec.call(pair)
   end
 end
-
