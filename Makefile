@@ -5,4 +5,4 @@ test:
 	bundle exec rspec
 
 lint:
-	rubocop .
+	bundle exec rubocop .
