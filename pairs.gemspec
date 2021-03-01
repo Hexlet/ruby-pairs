@@ -7,4 +7,5 @@ Gem::Specification.new do |s|
   s.email       = 'info@hexlet.io'
   s.homepage    = 'https://github.com/hexlet-components/ruby-pairs'
   s.license     = 'MIT'
+  s.required_ruby_version = '>= 2.4'
 end
