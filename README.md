@@ -5,7 +5,7 @@
 ## Usage example
 
 ```ruby
-require 'pairs'
+require 'hexlet/pairs'
 
 pair = Pairs.cons(3, 5)
 
