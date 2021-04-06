@@ -1,5 +1,5 @@
 install:
-	bundle install
+	bundle
 
 test:
 	bundle exec rspec

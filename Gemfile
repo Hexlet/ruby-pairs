@@ -2,4 +2,4 @@ source 'https://rubygems.org'
 
 gem 'rspec', '~> 3.10'
 
-gem 'rubocop', '~> 1.1'
+gem 'rubocop', '~> 1.12.1'
