@@ -1,8 +1,11 @@
 AllCops:
   Exclude:
     - "vendor/**/*"
+    - pairs.gemspec
   NewCops: enable
 
+# Style/StringLiterals:
+#   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:

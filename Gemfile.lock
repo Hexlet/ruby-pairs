@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    hexlet-pairs (1.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,6 +38,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
+    rubocop-rspec (2.2.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
     unicode-display_width (2.0.0)
 
@@ -40,8 +48,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  hexlet-pairs!
   rspec (~> 3.10)
   rubocop (~> 1.12.1)
+  rubocop-rspec (~> 2.2.0)
 
 BUNDLED WITH
    2.2.15
