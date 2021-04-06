@@ -2,10 +2,16 @@
 
 [![github action status](https://github.com/hexlet-components/ruby-pairs/workflows/CI/badge.svg)](https://github.com/hexlet-components/ruby-pairs/actions)
 
+## Install
+
+```sh
+gem install hexlet-pairs
+```
+
 ## Usage example
 
 ```ruby
-require 'hexlet/pairs'
+require 'pairs'
 
 pair = Pairs.cons(3, 5)
 
